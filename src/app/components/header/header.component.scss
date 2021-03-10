@@ -1,0 +1,43 @@
+.header {
+    background: var(--blue);
+    padding: 0 30px;
+    display: flex;
+    justify-content: space-between;
+
+    .header-section {
+        display: flex;
+        align-items: center;
+        span {
+            margin-left: 20px;
+        }
+        .search {
+            width: 800px;
+            border-bottom: 1px solid #fff;
+            display: flex;
+            justify-content: space-between;
+            input {
+                width: 100%;
+                background: none;
+                border: none;
+                padding: 0 5px;
+
+                &::placeholder {
+                    color: #fff;
+                    opacity: 1
+                }
+            }
+        }
+        .avatar {
+            background-color: #fff;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+        }
+        a {
+            color: #fff;
+            margin-right: 20px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+    }
+}

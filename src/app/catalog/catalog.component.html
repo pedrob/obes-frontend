@@ -1,0 +1,18 @@
+<app-header></app-header>
+<ul>
+    <li *ngFor="let book of books">
+        <mat-card  fxFlexAlign="stretch" class="card">
+            <mat-card-header class="card-header">
+                <mat-card-title class="card-title">{{book.title}}</mat-card-title>
+            </mat-card-header>
+            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+            <mat-card-content>
+                <div>Autor: {{book.author}}</div>
+                <div class="card-price">R$ {{book.price}},00</div>
+            </mat-card-content>
+            <mat-card-actions class="card-actions">
+                <button mat-raised-button>Adicionar ao carrinho</button>
+            </mat-card-actions>
+        </mat-card>
+    </li>
+</ul>
