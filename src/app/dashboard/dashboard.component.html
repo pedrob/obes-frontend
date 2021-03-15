@@ -1,1 +1,38 @@
-<p>dashboard works!</p>
+<app-header></app-header>
+<div class="container">
+    <mat-tab-group class="tab-group" mat-align-tabs="center">
+        <mat-tab class="tab-item" label="Meus anúncios">
+            <ul>
+                <li *ngFor="let userBook of userBooks">
+                    <mat-card  fxFlexAlign="stretch" class="card">
+                        <mat-card-header class="card-header">
+                            <mat-card-title class="card-title">{{userBook.title}}</mat-card-title>
+                        </mat-card-header>
+                        <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+                        <mat-card-content>
+                            <div>Autor: {{userBook.author}}</div>
+                            <div class="card-price">R$ {{userBook.price}},00</div>
+                        </mat-card-content>
+                    </mat-card>
+                </li>
+            </ul>
+        </mat-tab>
+        <mat-tab label="Minhas Compras">
+            <ul>
+                <li *ngFor="let purchedBook of purchedBooks">
+                    <mat-card  fxFlexAlign="stretch" class="card">
+                        <mat-card-header class="card-header">
+                            <mat-card-title class="card-title">{{purchedBook.title}}</mat-card-title>
+                        </mat-card-header>
+                        <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+                        <mat-card-content>
+                            <div>Autor: {{purchedBook.author}}</div>
+                            <div class="card-price">R$ {{purchedBook.price}},00</div>
+                            <div>Data: {{purchedBook.createdAt | date: 'dd/MMM/yyyy'}}</div>
+                        </mat-card-content>
+                    </mat-card>
+                </li>
+            </ul>
+        </mat-tab>
+    </mat-tab-group>
+</div>

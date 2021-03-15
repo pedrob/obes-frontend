@@ -22,6 +22,12 @@ export class AuthService {
 		return of(false);
 	}
 
+	getAuthenticatedUserUsername() {
+		const token = this.getToken();
+		const { sub } = jwt_decode<{ sub: string }>(token);
+		return 'pedroven';
+	}
+
 	signIn(username: string, password: string) {
 		return this.http
 			.post(

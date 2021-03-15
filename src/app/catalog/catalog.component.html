@@ -10,9 +10,12 @@
                 <div>Autor: {{book.author}}</div>
                 <div class="card-price">R$ {{book.price}},00</div>
             </mat-card-content>
-            <mat-card-actions class="card-actions">
+            <mat-card-actions class="card-actions" (click)="addBookToCart(book)">
                 <button mat-raised-button>Adicionar ao carrinho</button>
             </mat-card-actions>
         </mat-card>
     </li>
 </ul>
+<div *ngIf="hasMoreBooks" class="button-container">
+    <button mat-raised-button class="button-has-more" (click)="getMoreBooks()">Ver mais</button>
+</div>

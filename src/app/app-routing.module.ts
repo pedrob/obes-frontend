@@ -15,7 +15,7 @@ const routes: Routes = [
 		component: DashboardComponent,
 		canActivate: [ AuthGuard ]
 	},
-	{ path: '', redirectTo: '/inicio', pathMatch: 'full' }
+	{ path: '', redirectTo: '/dashboard', pathMatch: 'full' }
 ];
 
 @NgModule({

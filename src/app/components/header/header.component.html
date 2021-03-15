@@ -3,16 +3,25 @@
         <span>Logo</span>
     </div>
     <div class="header-section">
-        <span class="search"><input placeholder="Pesquisar..." type="text"> 
-        <mat-icon>search</mat-icon></span>
+        <span class="search">
+            <input #searchTerm placeholder="Pesquisar..." type="text">
+            <button class="button-search" (click)="search(searchTerm.value)">
+                <mat-icon>search</mat-icon>
+            </button>
+        </span>
     </div>
     <div class="header-section">
         <span>
-            <a href="#">
+            <a routerLink="/catalogo">
                 catálogo
             </a>
         </span>
-        <mat-icon>shopping_cart</mat-icon>
+        <div class="cart-section">
+            <mat-icon >shopping_cart</mat-icon>
+            <div class="cart-items-qtd">
+                {{cart.books.length}}
+            </div>
+        </div>
         <span class="avatar"></span>
     </div>
 </mat-toolbar>

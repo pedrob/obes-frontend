@@ -6,6 +6,7 @@ ul {
     gap: 12px;
     margin: 0 auto;
     margin-top: 30px;
+    margin-bottom: 30px;
     li { 
         list-style: none;
     }
@@ -39,5 +40,17 @@ ul {
                 background: var(--blue);
             }
         }
+    }
+}
+.button-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    .button-has-more {
+        background: var(--blue);
+        margin: 0 auto;
+        padding: 2px 20px;
+        width: 200px;
     }
 }
