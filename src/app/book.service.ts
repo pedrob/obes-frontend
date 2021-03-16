@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Page } from './models/book';
+import { Book, Page } from './models/book';
 import { AuthService } from './auth/auth.service';
 
 @Injectable({
@@ -21,6 +21,13 @@ export class BookService {
 
 	getBooks(): Observable<Page> {
 		return this.http.get<Page>(this.booksUrl, this.httpOptions);
+	}
+
+	getBook(bookId: number): Observable<Book> {
+		return this.http.get<Book>(
+			`${this.booksUrl}/${bookId}`,
+			this.httpOptions
+		);
 	}
 
 	nextPage(): Observable<Page> {

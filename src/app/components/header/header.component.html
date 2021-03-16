@@ -1,10 +1,10 @@
 <mat-toolbar class="header">
-    <div class="header-section">
+    <a routerLink="/" routerLinkActive="router-link-active"  class="header-section">
         <span>Logo</span>
-    </div>
+    </a>
     <div class="header-section">
         <span class="search">
-            <input #searchTerm placeholder="Pesquisar..." type="text">
+            <input #searchTerm placeholder="Pesquisar..." type="search">
             <button class="button-search" (click)="search(searchTerm.value)">
                 <mat-icon>search</mat-icon>
             </button>
@@ -16,7 +16,7 @@
                 catálogo
             </a>
         </span>
-        <div class="cart-section">
+        <div class="cart-section" (click)="toggleCart()">
             <mat-icon >shopping_cart</mat-icon>
             <div class="cart-items-qtd">
                 {{cart.books.length}}
@@ -25,3 +25,27 @@
         <span class="avatar"></span>
     </div>
 </mat-toolbar>
+<aside *ngIf="cartIsOpen" class="cart">
+    <div class="cart-title">Carrinho</div>
+    <ul class="cart-items">
+        <li *ngFor="let book of cart.books" class="cart-item">
+            <div class="cart-item-container">
+                <div class="cart-item-image">
+                </div>
+                <div class="cart-item-info">
+                    <span class="cart-item-title">{{book.title}}</span>
+                    <span class="cart-item-price">R$ {{book.price}},00</span>
+                    <button class="cart-item-remove" title="remover item" (click)="removeBookFromCart(book.id)">
+                        <mat-icon >delete</mat-icon>
+                    </button>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <div class="cart-total-value">Valor total: R$ 100,00</div>
+    <a routerLink="/compra" style="text-decoration: none; color: var(--blue);">
+        <mat-card-actions class="cart-button">
+            <button mat-raised-button>Finalizar compra</button>
+        </mat-card-actions>
+    </a>
+</aside>

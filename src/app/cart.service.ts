@@ -19,6 +19,10 @@ export class CartService {
 		this.cartSubject.next(this.addToStorage(book));
 	}
 
+	removeBookFromCart(bookId: number) {
+		this.cartSubject.next(this.deleteFromStorage(bookId));
+	}
+
 	private addToStorage(book: Book): Cart {
 		let cart = this.getCartFromStorage();
 		if (cart.books.length > 0) {
@@ -43,5 +47,13 @@ export class CartService {
 			return parsedCart;
 		}
 		return { books: [] };
+	}
+
+	private deleteFromStorage(bookId: number): Cart {
+		let cart = this.getCartFromStorage();
+		let newCartBooks = cart.books.filter((book) => book.id !== bookId);
+		cart.books = newCartBooks;
+		localStorage.setItem('@cart', JSON.stringify(cart));
+		return cart;
 	}
 }

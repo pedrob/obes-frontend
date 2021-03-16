@@ -1,10 +1,14 @@
 .header {
+    position: fixed;
     background: var(--blue);
     padding: 0 30px;
     display: flex;
     justify-content: space-between;
-
+    z-index: 20;
+    
     .header-section {
+        text-decoration: none;
+        color: #fff;
         display: flex;
         align-items: center;
         span {
@@ -44,6 +48,7 @@
         .cart-section {
             display: flex;
             position: relative;
+            cursor: pointer;
         }
 
         .cart-items-qtd {
@@ -66,6 +71,93 @@
             margin-right: 20px;
             text-decoration: none;
             font-size: 17px;
+        }
+    }
+}
+
+.cart {
+    background-color: var(--blue);
+    width: 300px;
+    height: 473px;
+    position: fixed;
+    top: 70px;
+    right: 70px;
+    z-index: 50;
+
+    .cart-title {
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 15px;
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+    .cart-items {
+        width: 100%;
+        height: 320px;
+        overflow-x: auto;
+        
+        .cart-item {
+            list-style: none;
+            width: 90%;
+            height: 100px;
+            margin: 0 auto;
+            border-bottom: 1px solid #fff;
+
+            .cart-item-container {
+                display: flex;
+                width: 100%;
+                height: 100%;
+                align-items: center;
+                position: relative;
+                padding: 0 4px;
+
+                .cart-item-image {
+                    background: gray;
+                    width: 60px;
+                    height: 60px;
+                }
+
+                .cart-item-info {
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    padding: 0 8px;
+                    color: #fff;
+
+                    .cart-item-remove {
+                        position: absolute;
+                        right: 5px;
+                        top: 20px;
+                        cursor: pointer;
+                        color: #fff;
+                        background: none;
+                        border: none;
+                    }
+                }
+
+            }
+        }
+    }
+
+    .cart-total-value {
+        display: flex;
+        justify-content: center;
+        color: #fff;
+        font-size: 18px;
+        margin-top: 20px;
+    }
+
+    .cart-button {
+        display: flex;
+        justify-content: center;
+        button {
+            width: 80%;
+            background-color: orange;
+            color: var(--blue);
         }
     }
 }

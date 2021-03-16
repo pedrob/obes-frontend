@@ -1,7 +1,7 @@
 <app-header></app-header>
 <ul>
     <li *ngFor="let book of books">
-        <mat-card  fxFlexAlign="stretch" class="card">
+        <mat-card  fxFlexAlign="stretch" class="card" (click)="goToBookDetails(book.id,$event)">
             <mat-card-header class="card-header">
                 <mat-card-title class="card-title">{{book.title}}</mat-card-title>
             </mat-card-header>

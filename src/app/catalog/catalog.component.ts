@@ -3,6 +3,7 @@ import { Book } from '../models/book';
 import { BookService } from '../book.service';
 import { SearchBooksService } from '../search-books.service';
 import { CartService } from '../cart.service';
+import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-catalog',
@@ -16,7 +17,8 @@ export class CatalogComponent implements OnInit {
 	constructor(
 		private bookService: BookService,
 		private searchBooksService: SearchBooksService,
-		private cartService: CartService
+		private cartService: CartService,
+		private router: Router
 	) {}
 
 	ngOnInit(): void {
@@ -61,5 +63,16 @@ export class CatalogComponent implements OnInit {
 
 	addBookToCart(book: Book) {
 		this.cartService.addBookToCart(book);
+	}
+
+	goToBookDetails(bookId: number, event: Event) {
+		const target = event.target as HTMLElement;
+		if (
+			target.tagName !== 'MAT-CARD-ACTIONS' &&
+			target.tagName !== 'SPAN' &&
+			target.tagName !== 'BUTTON'
+		) {
+			this.router.navigate([ `/livro/${bookId}` ]);
+		}
 	}
 }

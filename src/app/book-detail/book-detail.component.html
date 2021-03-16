@@ -1,0 +1,17 @@
+<app-header></app-header>
+<div *ngIf="book" class="book-detail-container">
+    <div class="book-image">
+    </div>
+    <mat-card  fxFlexAlign="stretch" class="book-info">
+        <h1 class="book-title">{{book.title}}</h1>
+        <h3 class="book-author">{{book.author}}</h3>
+        <p class="book-description">
+            {{book.description}}
+        </p>
+        <span class="book-price">R$ {{book.price}},00</span>
+        <span class="book-date">{{book.createdAt | date: 'dd/MMM/yyyy'}}</span>
+        <mat-card-actions class="book-add-button" (click)="addBookToCart(book)">
+            <button *ngIf="isAuthenticated" mat-raised-button>Adicionar ao carrinho</button>
+        </mat-card-actions>
+    </mat-card>
+</div>

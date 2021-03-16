@@ -11,6 +11,7 @@ import { SearchBooksService } from 'src/app/search-books.service';
 })
 export class HeaderComponent implements OnInit {
 	cart: Cart = { books: [] };
+	cartIsOpen: boolean = false;
 
 	constructor(
 		private router: Router,
@@ -25,5 +26,13 @@ export class HeaderComponent implements OnInit {
 	search(searchTerm: string): void {
 		this.router.navigate([ '/catalogo' ]);
 		this.searchBooksService.setSearchTermsSubject(searchTerm);
+	}
+
+	toggleCart() {
+		this.cartIsOpen = !this.cartIsOpen;
+	}
+
+	removeBookFromCart(bookId: number) {
+		this.cartService.removeBookFromCart(bookId);
 	}
 }
