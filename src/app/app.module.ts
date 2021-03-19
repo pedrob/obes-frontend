@@ -15,7 +15,6 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './components/header/header.component';
 import { LoginComponent } from './login/login.component';
-import { PurchaseComponent } from './purchase/purchase.component';
 import { BookDetailComponent } from './book-detail/book-detail.component';
 
 @NgModule({
@@ -26,7 +25,6 @@ import { BookDetailComponent } from './book-detail/book-detail.component';
 		HomeComponent,
 		HeaderComponent,
 		LoginComponent,
-		PurchaseComponent,
 		BookDetailComponent
 	],
 	imports: [

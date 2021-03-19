@@ -22,12 +22,12 @@ export class DashboardComponent implements OnInit {
 	ngOnInit(): void {
 		this.loggedUsername = this.authService.getAuthenticatedUserUsername();
 		this.bookService
-			.getUserBooks(this.loggedUsername)
+			.getUserBooks()
 			.subscribe(
 				(booksResponse) => (this.userBooks = booksResponse.content)
 			);
 		this.bookService
-			.getPurchedBooks(this.loggedUsername)
+			.getPurchedBooks()
 			.subscribe(
 				(booksResponse) => (this.purchedBooks = booksResponse.content)
 			);

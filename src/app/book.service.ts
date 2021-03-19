@@ -37,18 +37,12 @@ export class BookService {
 		);
 	}
 
-	getUserBooks(username: string): Observable<Page> {
-		return this.http.get<Page>(
-			`${this.booksUrl}/owner/${username}`,
-			this.httpOptions
-		);
+	getUserBooks(): Observable<Page> {
+		return this.http.get<Page>(`${this.booksUrl}/owner`, this.httpOptions);
 	}
 
-	getPurchedBooks(username: string): Observable<Page> {
-		return this.http.get<Page>(
-			`${this.booksUrl}/buyer/${username}`,
-			this.httpOptions
-		);
+	getPurchedBooks(): Observable<Page> {
+		return this.http.get<Page>(`${this.booksUrl}/buyer`, this.httpOptions);
 	}
 
 	searchBooks(term: string): Observable<Page> {

@@ -6,13 +6,11 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { BookDetailComponent } from './book-detail/book-detail.component';
-import { PurchaseComponent } from './purchase/purchase.component';
 
 const routes: Routes = [
 	{ path: 'catalogo', component: CatalogComponent },
 	{ path: 'inicio', component: HomeComponent },
 	{ path: 'login', component: LoginComponent },
-	{ path: 'compra', component: PurchaseComponent },
 	{
 		path: 'dashboard',
 		component: DashboardComponent,

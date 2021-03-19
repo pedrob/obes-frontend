@@ -5825,6 +5825,13 @@ next-tick@~1.0.0:
   resolved "https://registry.yarnpkg.com/next-tick/-/next-tick-1.0.0.tgz#ca86d1fe8828169b0120208e3dc8424b9db8342c"
   integrity sha1-yobR/ogoFpsBICCOPchCS524NCw=
 
+ng-payment-card@^0.0.8:
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/ng-payment-card/-/ng-payment-card-0.0.8.tgz#e986d8bc43532558158088b3d7dfd8083fe0ceef"
+  integrity sha512-PBZahVPYucfVqlLRgGME/LxtdJmDPKdeI74pZkUAuk0KUZsJ/e3dDSDGOBdl6kj1bo7beDkqJLN9tpE4W85nhw==
+  dependencies:
+    tslib "^1.9.0"
+
 nice-try@^1.0.4:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/nice-try/-/nice-try-1.0.5.tgz#a3378a7696ce7d223e88fc9b764bd7ef1089e366"

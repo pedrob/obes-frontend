@@ -1,1 +1,36 @@
-<p>home works!</p>
+<section class="banner">
+    <header>
+        <nav>
+            <a routerLink="/catalogo">catálogo</a>
+            <a routerLink="/login">
+                <button mat-raised-button class="banner-login-button">login</button>
+            </a>
+            <a routerLink="/registro">
+                <button mat-raised-button class="banner-signup-button">registre-se</button>
+            </a>
+        </nav>
+    </header>
+    <div>
+        <span class="banner-logo">
+            <mat-icon [inline]="true">auto_stories</mat-icon>
+            Obes
+        </span>
+        <span class="banner-text">
+            O seu sebo online
+        </span>
+    </div>
+</section>
+<section class="ad">
+    <div class="ad-circle">
+        <mat-icon>
+            library_books
+        </mat-icon>
+    </div>
+    <span>Um cátalogo de obras variado, com diferentes títulos e autores.</span>
+    <a routerLink="/catalogo">
+        <button mat-raised-button>Ver o catálogo</button>
+    </a>
+</section>
+<footer>
+    Obes  ©  - 2021  |  feito por Pedro Beethoven
+</footer>

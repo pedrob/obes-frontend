@@ -1,0 +1,106 @@
+.banner {
+    width: 100%;
+    height: 700px;
+    background-image: url('../../assets/books-bg.jpg');
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+
+    header {
+        display: flex;
+        flex-direction: row-reverse;
+        nav {
+            padding-top: 20px;
+            a {
+                margin-right: 30px;
+                font-size: 18px;
+                text-decoration: none;
+                font-weight: bold;color: #fff;
+            }
+            .banner-login-button {
+                background: var(--blue);
+            }
+
+            .banner-signup-button {
+                background: darkolivegreen;
+            }
+        }
+    }
+
+    div {
+        align-self: center;
+        margin-top: 120px;
+        display: flex;
+        flex-direction: column;
+        .banner-logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 100px;
+            color: #fff;
+        }
+        .banner-text {
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+            font-size: 20px;
+            color: #fff;
+        }
+    }
+}
+
+.ad {
+    width: 100%;
+    height: 400px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .ad-circle {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        border: 12px solid var(--blue);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 70px;
+
+        mat-icon {
+            color: var(--blue);
+            font-size: 80px;
+            margin-right: 40%;
+            margin-bottom: 35%;
+            justify-self: center;
+        }
+    }
+    span {
+        margin-top: 20px;
+        width: 250px; 
+        font-size: 18px;
+        font-weight: bold;
+        text-align: center;
+        color: var(--blue);
+    }
+
+    a {
+        button {
+            margin-top: 20px;
+            background: var(--blue);
+        }
+    }
+}
+
+footer {
+    width: 100%;
+    height: 200px;
+    background: var(--blue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    color: #fff;
+}
