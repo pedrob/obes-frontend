@@ -41,7 +41,15 @@ export class AuthService {
 			.pipe(map((response) => localStorage.setItem('@token', response)));
 	}
 
-	signUp() {}
+	signUp(name: string, username: string, password: string) {
+		return this.http
+			.post('http://localhost:8080/signup', {
+				name: name,
+				username: username,
+				password: password
+			})
+			.pipe(map((response) => {}));
+	}
 
 	getToken() {
 		const token = localStorage.getItem('@token') || '';

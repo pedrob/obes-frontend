@@ -1,2 +1,31 @@
-<p>login works!</p>
-<button (click)="login()">login</button>
+<mat-card class="container">
+    <div class="logo">
+        <span routerLink="/" style="cursor: pointer;">
+            <mat-icon [inline]="true">auto_stories</mat-icon>
+            Obes
+        </span>
+    </div>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <input class="input" type="text" formControlName="username" placeholder="Username" [ngClass]="{ 'is-invalid': submitted && form!.username.errors }" />
+            <div *ngIf="submitted && form.username.errors" class="invalid-feedback">
+                <div *ngIf="form!.username.errors.required">Username é obrigatório</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <input class="input" type="password" formControlName="password" placeholder="Senha" [ngClass]="{ 'is-invalid': submitted && form!.password.errors }" />
+            <div *ngIf="submitted && form!.password.errors" class="invalid-feedback">
+                <div *ngIf="form!.password.errors.required">Senha é obrigatória</div>
+            </div>
+        </div>
+        <div class="form-group" style="margin-top: 28px;">
+            <button [disabled]="loading" mat-raised-button class="button-login">
+                <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                Login
+            </button>
+            <a style="color: white" routerLink="/registro" class="btn btn-link">Registre-se</a>
+        </div>
+    </form>
+</mat-card>
+
+<!-- <button (click)="login()">login</button> -->

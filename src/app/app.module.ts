@@ -16,6 +16,11 @@ import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './components/header/header.component';
 import { LoginComponent } from './login/login.component';
 import { BookDetailComponent } from './book-detail/book-detail.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RegisterComponent } from './register/register.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ModalCreateComponent } from './modal-create/modal-create.component';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
 	declarations: [
@@ -25,7 +30,9 @@ import { BookDetailComponent } from './book-detail/book-detail.component';
 		HomeComponent,
 		HeaderComponent,
 		LoginComponent,
-		BookDetailComponent
+		BookDetailComponent,
+		RegisterComponent,
+		ModalCreateComponent
 	],
 	imports: [
 		BrowserModule,
@@ -36,7 +43,11 @@ import { BookDetailComponent } from './book-detail/book-detail.component';
 		MatCardModule,
 		MatButtonModule,
 		MatIconModule,
-		MatTabsModule
+		MatTabsModule,
+		FormsModule,
+		ReactiveFormsModule,
+		MatDialogModule,
+		MatInputModule
 	],
 	providers: [],
 	bootstrap: [ AppComponent ]

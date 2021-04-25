@@ -35,4 +35,8 @@ export class HeaderComponent implements OnInit {
 	removeBookFromCart(bookId: number) {
 		this.cartService.removeBookFromCart(bookId);
 	}
+
+	finalizePurchase() {
+		alert('Compra finalizada!');
+	}
 }

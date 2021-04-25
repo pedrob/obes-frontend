@@ -1,0 +1,36 @@
+<mat-card class="container">
+    <div class="logo">
+        <span routerLink="/" style="cursor: pointer;">
+            <mat-icon [inline]="true">auto_stories</mat-icon>
+            Obes
+        </span>
+    </div>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <input class="input" type="text" formControlName="name" placeholder="Nome" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+            <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                <div *ngIf="f.firstName.errors.required">Nome é obrigatório</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <input class="input" type="text" formControlName="username" placeholder="Username" [ngClass]="{ 'is-invalid': submitted && f!.username.errors }" />
+            <div *ngIf="submitted && f!.username.errors" class="invalid-feedback">
+                <div *ngIf="f!.username.errors.required">Username é obrigatório</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <input class="input" type="password" formControlName="password" placeholder="Senha" [ngClass]="{ 'is-invalid': submitted && f!.password.errors }" />
+            <div *ngIf="submitted && f!.password.errors" class="invalid-feedback">
+                <div *ngIf="f!.password.errors.required">Senha é obrigatória</div>
+                <div *ngIf="f!.password.errors.minlength">A senha deve ter pelo menos 6 caracteres</div>
+            </div>
+        </div>
+        <div class="form-group" style="margin-top: 28px;">
+            <button [disabled]="loading" mat-raised-button class="button-login">
+                <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                Registrar-se
+            </button>
+            <a style="color: white" routerLink="/login" class="btn btn-link">Cancelar</a>
+        </div>
+    </form>
+</mat-card>

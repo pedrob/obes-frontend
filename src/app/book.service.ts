@@ -3,13 +3,16 @@ import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Book, Page } from './models/book';
 import { AuthService } from './auth/auth.service';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
 	providedIn: 'root'
 })
 export class BookService {
 	private page: number = 0;
-	private booksUrl = 'http://localhost:8080/books';
+	private booksUrl = `${environment.production
+		? 'https://obes-api.herokuapp.com/'
+		: 'http://localhost:8080'}/books`;
 	httpOptions = {
 		headers: new HttpHeaders({
 			'Content-Type': 'application/json',
@@ -24,10 +27,7 @@ export class BookService {
 	}
 
 	getBook(bookId: number): Observable<Book> {
-		return this.http.get<Book>(
-			`${this.booksUrl}/${bookId}`,
-			this.httpOptions
-		);
+		return this.http.get<Book>(`${this.booksUrl}/${bookId}`, this.httpOptions);
 	}
 
 	nextPage(): Observable<Page> {

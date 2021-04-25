@@ -1,6 +1,11 @@
 <mat-toolbar class="header">
     <a routerLink="/" routerLinkActive="router-link-active"  class="header-section">
-        <span>Logo</span>
+        <div class="logo">
+            <span routerLink="/" style="cursor: pointer;">
+                <mat-icon [inline]="true">auto_stories</mat-icon>
+                Obes
+            </span>
+        </div>
     </a>
     <div class="header-section">
         <span class="search">
@@ -45,7 +50,7 @@
     <div class="cart-total-value">Valor total: R$ 100,00</div>
     <a routerLink="/compra" style="text-decoration: none; color: var(--blue);">
         <mat-card-actions class="cart-button">
-            <button mat-raised-button>Finalizar compra</button>
+            <button (click)="finalizePurchase()" mat-raised-button>Finalizar compra</button>
         </mat-card-actions>
     </a>
 </aside>
