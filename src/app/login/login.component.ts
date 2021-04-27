@@ -34,6 +34,9 @@ export class LoginComponent implements OnInit {
 		}
 		this.loading = true;
 		this.authService.signIn(this.form?.username.value, this.form?.password.value).subscribe(
-			data => this.router.navigate(["/dashboard"]));
+			data => this.router.navigate(["/dashboard"]), error => {
+				alert("Credenciais Inválidas");
+				this.loading = false;
+		});
 	}
 }

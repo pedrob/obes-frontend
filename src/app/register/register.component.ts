@@ -44,6 +44,9 @@ export class RegisterComponent implements OnInit {
 
     this.loading = true;
     this.authService.signUp(this.f.name.value, this.f.username.value, this.f.password.value)
-      .subscribe(data => this.router.navigate(["/login"]));
+      .subscribe(data => this.router.navigate(["/login"]), error => {
+				alert("Algum valor inválido");
+				this.loading = false;
+		});
   }
 }
