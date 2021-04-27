@@ -27,15 +27,18 @@
                 {{cart.books.length}}
             </div>
         </div>
-        <span class="avatar"></span>
+        <!-- <span class="avatar"></span> -->
     </div>
 </mat-toolbar>
 <aside *ngIf="cartIsOpen" class="cart">
     <div class="cart-title">Carrinho</div>
+    <div *ngIf="!cart.books.length" style="width: 100%; height: 100%; display: flex; justify-content: center; color: white;">Carrinho vazio</div>
     <ul class="cart-items">
         <li *ngFor="let book of cart.books" class="cart-item">
             <div class="cart-item-container">
                 <div class="cart-item-image">
+                    <img *ngIf="book.imageUrl" mat-card-image src="{{book.imageUrl}}" style="width: 100%; height: 100%; margin-top: 0;" alt="Foto do livro">
+                     <img *ngIf="!book.imageUrl" mat-card-image src="https://www.otis.edu/sites/default/files/books-readers-icon-small-16_0.png" style="width: 100%; height: 100%; margin-top: 0;" >
                 </div>
                 <div class="cart-item-info">
                     <span class="cart-item-title">{{book.title}}</span>
@@ -47,8 +50,8 @@
             </div>
         </li>
     </ul>
-    <div class="cart-total-value">Valor total: R$ 100,00</div>
-    <a routerLink="/compra" style="text-decoration: none; color: var(--blue);">
+    <div *ngIf="cart.books.length" class="cart-total-value">Valor total: R$ {{total}},00</div>
+    <a *ngIf="cart.books.length" style="text-decoration: none; color: var(--blue);">
         <mat-card-actions class="cart-button">
             <button (click)="finalizePurchase()" mat-raised-button>Finalizar compra</button>
         </mat-card-actions>

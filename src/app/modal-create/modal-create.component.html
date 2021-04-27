@@ -1,39 +1,35 @@
-<h2>Modal create</h2>
-<form [formGroup]="createForm" (ngSubmit)="onSubmit()">
-    <!-- <div class="form-group">
-        <label for="firstName">Name</label>
-        <input type="text" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f!.title.errors }" />
-        <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
-            <div *ngIf="f.firstName.errors.required">Name is required</div>
-        </div>
-    </div> -->
-    <mat-form-field class="example-full-width">
-        <mat-label>Nome</mat-label>
-        <input type="text" matInput formControlName="name" placeholder="Nome" [ngClass]="{ 'is-invalid': submitted && f!.title.errors }" />
-        <!-- <mat-error  *ngIf="f!.firstName.errors.required">
-          Email is <strong>required</strong>
-        </mat-error> -->
-    </mat-form-field>
-    <!-- <div class="form-group">
-        <label for="username">Username</label>
-        <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f!.username.errors }" />
-        <div *ngIf="submitted && f!.username.errors" class="invalid-feedback">
-            <div *ngIf="f!.username.errors.required">Username is required</div>
+<form [formGroup]="createForm" style="background-color: var(--blue); padding: 20px; width: 400px;" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="">Escolher imagem do livro</label>
+        <input type="file" (change)="onFileChanged($event)" />
+    </div>
+    
+    <div class="form-group">
+        <input class="input" type="text" formControlName="title" placeholder="Título" [ngClass]="{ 'is-invalid': submitted && f!.title.errors }" />
+        <div *ngIf="submitted && f.title.errors" class="invalid-feedback">
+            <div *ngIf="f!.title.errors!.required">Título é obrigatório</div>
         </div>
     </div>
     <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f!.password.errors }" />
-        <div *ngIf="submitted && f!.password.errors" class="invalid-feedback">
-            <div *ngIf="f!.password.errors.required">Password is required</div>
-            <div *ngIf="f!.password.errors.minlength">Password must be at least 6 characters</div>
+        <input class="input" type="text" formControlName="author" placeholder="Autor" [ngClass]="{ 'is-invalid': submitted && f!.author.errors }" />
+        <div *ngIf="submitted && f.author.errors" class="invalid-feedback">
+            <div *ngIf="f!.author.errors!.required">Autor é obrigatório</div>
         </div>
-    </div> -->
+    </div>
     <div class="form-group">
-        <button [disabled]="loading" class="btn btn-primary">
+        <input class="input" type="text" formControlName="price" placeholder="Preço" [ngClass]="{ 'is-invalid': submitted && f!.price.errors }" />
+        <div *ngIf="submitted && f.price.errors" class="invalid-feedback">
+            <div *ngIf="f!.price.errors!.required">Preço deve ser um valor positivo</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <textarea formControlName="description" placeholder="Descrição" cols="30" rows="10"></textarea>
+    </div>
+    <div class="form-group" style="margin-top: 28px;">
+        <button [disabled]="loading" mat-raised-button class="button-login">
             <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
-            Register
+            Criar anúncio
         </button>
-        <a routerLink="/login" class="btn btn-link">Cancel</a>
+            <!-- <p style="color: white class="btn btn-link">Cancelar</a> -->
     </div>
 </form>

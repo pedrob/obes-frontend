@@ -1,6 +1,8 @@
 <app-header></app-header>
 <div *ngIf="book" class="book-detail-container">
-    <div class="book-image">
+    <div style="width: 50%; height: 500px; margin-top: 18px;">
+        <img *ngIf="book.imageUrl" mat-card-image src="{{book.imageUrl}}" style="width: 100%; height: 100%;" alt="Foto do livro">
+        <img *ngIf="!book.imageUrl" mat-card-image src="https://www.otis.edu/sites/default/files/books-readers-icon-small-16_0.png" style="width: 100%; height: 100%;" >
     </div>
     <mat-card  fxFlexAlign="stretch" class="book-info">
         <h1 class="book-title">{{book.title}}</h1>

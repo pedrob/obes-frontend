@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import jwt_decode from 'jwt-decode';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
 	providedIn: 'root'
@@ -25,13 +26,19 @@ export class AuthService {
 	getAuthenticatedUserUsername() {
 		const token = this.getToken();
 		const { sub } = jwt_decode<{ sub: string }>(token);
-		return 'pedroven';
+		return sub;
 	}
+
+	private booksUrl = `${environment.production
+		? 'https://obes-api.herokuapp.com/'
+		: 'http://localhost:8080'}/books`;
 
 	signIn(username: string, password: string) {
 		return this.http
 			.post(
-				'http://localhost:8080/login',
+				environment.production
+					? 'https://obes-api.herokuapp.com/login'
+					: 'http://localhost:8080/login',
 				{
 					username: username,
 					password: password
@@ -43,11 +50,16 @@ export class AuthService {
 
 	signUp(name: string, username: string, password: string) {
 		return this.http
-			.post('http://localhost:8080/signup', {
-				name: name,
-				username: username,
-				password: password
-			})
+			.post(
+				environment.production
+					? 'https://obes-api.herokuapp.com/signup'
+					: 'http://localhost:8080/signup',
+				{
+					name: name,
+					username: username,
+					password: password
+				}
+			)
 			.pipe(map((response) => {}));
 	}
 

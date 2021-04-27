@@ -81,7 +81,7 @@
     height: 473px;
     position: fixed;
     top: 70px;
-    right: 70px;
+    right: 35px;
     z-index: 50;
 
     .cart-title {
@@ -101,9 +101,10 @@
         
         .cart-item {
             list-style: none;
-            width: 90%;
+            width: 100%;
             height: 100px;
             margin: 0 auto;
+            margin-left: -15px;
             border-bottom: 1px solid #fff;
 
             .cart-item-container {
@@ -118,6 +119,8 @@
                     background: gray;
                     width: 60px;
                     height: 60px;
+                    display: flex;
+                    justify-content: center;
                 }
 
                 .cart-item-info {

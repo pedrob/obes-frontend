@@ -1,0 +1,44 @@
+::ng-deep.mat-dialog-container {
+  padding: 0px !important;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  background: var(--blue);
+}
+
+
+.input, textarea {
+  background-color: var(--blue);
+  border: none;
+  border-bottom: 1px solid white;
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  margin-top: 20px;
+  color: white;
+}
+
+textarea {
+  border: 1px solid white;
+}
+
+.button-login {
+  background-color: darkorange;
+  color: var(--blue);
+}
+
+::placeholder {
+  color: white;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+ color: white;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+ color: white;
+}

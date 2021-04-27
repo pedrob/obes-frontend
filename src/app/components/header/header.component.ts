@@ -12,6 +12,7 @@ import { SearchBooksService } from 'src/app/search-books.service';
 export class HeaderComponent implements OnInit {
 	cart: Cart = { books: [] };
 	cartIsOpen: boolean = false;
+	total: number = 0;
 
 	constructor(
 		private router: Router,
@@ -20,7 +21,18 @@ export class HeaderComponent implements OnInit {
 	) {}
 
 	ngOnInit(): void {
-		this.cartService.getCart().subscribe((cart) => (this.cart = cart));
+		this.cartService.getCart().subscribe((cart) => {
+			this.cart = cart;
+			this.calculateTotal();
+		});
+	}
+
+	calculateTotal() {
+		let totalCalculated = 0;
+		this.cart.books.map((book) => {
+			totalCalculated += book.price;
+		});
+		this.total = totalCalculated;
 	}
 
 	search(searchTerm: string): void {
@@ -34,9 +46,13 @@ export class HeaderComponent implements OnInit {
 
 	removeBookFromCart(bookId: number) {
 		this.cartService.removeBookFromCart(bookId);
+		this.calculateTotal();
 	}
 
 	finalizePurchase() {
+		localStorage.setItem('@cart', JSON.stringify({ books: [] }));
+		this.cart = { books: [] };
 		alert('Compra finalizada!');
+		this.cartIsOpen = false;
 	}
 }

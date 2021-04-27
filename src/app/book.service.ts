@@ -11,7 +11,7 @@ import { environment } from 'src/environments/environment';
 export class BookService {
 	private page: number = 0;
 	private booksUrl = `${environment.production
-		? 'https://obes-api.herokuapp.com/'
+		? 'https://obes-api.herokuapp.com'
 		: 'http://localhost:8080'}/books`;
 	httpOptions = {
 		headers: new HttpHeaders({
@@ -54,5 +54,20 @@ export class BookService {
 		} else {
 			return this.getBooks();
 		}
+	}
+
+	createBook(book: Partial<Book>): Observable<Book> {
+		return this.http.post<Book>(`${this.booksUrl}`, book, this.httpOptions);
+	}
+
+	uploadBookImage(file: any, id: number): Observable<any> {
+		const formData = new FormData();
+		formData.append('file', file);
+		formData.append('id', id + '');
+		return this.http.post(`${this.booksUrl}/image`, formData, {
+			headers: new HttpHeaders({
+				Authorization: `Bearer ${this.authService.getToken()}`
+			})
+		});
 	}
 }

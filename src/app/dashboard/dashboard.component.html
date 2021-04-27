@@ -1,6 +1,6 @@
 <app-header></app-header>
 <div style="width: 100%; margin-top: 100px; display: flex; justify-content: center; margin-bottom: 20px;">
-    <button mat-raised-button (click)="openDialog()">Criar anúncio</button>
+    <button mat-raised-button (click)="openDialog()" style="background-color: var(--blue);">Criar anúncio</button>
 </div>
 <div class="container" style="padding-top: 0;">
     <mat-tab-group class="tab-group" mat-align-tabs="center">
@@ -11,7 +11,10 @@
                         <mat-card-header class="card-header">
                             <mat-card-title class="card-title">{{userBook.title}}</mat-card-title>
                         </mat-card-header>
-                        <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+                        <div style="width: 100%; height: 320px; display: flex; justify-content: center; margin-top: 20px;">
+                            <img *ngIf="userBook.imageUrl" mat-card-image src="{{userBook.imageUrl}}" style="width: 100%; height: 100%;" alt="Foto do livro">
+                            <img *ngIf="!userBook.imageUrl" mat-card-image src="https://www.otis.edu/sites/default/files/books-readers-icon-small-16_0.png" style="width: 100%; height: 100%;" >
+                        </div>
                         <mat-card-content>
                             <div>Autor: {{userBook.author}}</div>
                             <div class="card-price">R$ {{userBook.price}},00</div>
@@ -19,6 +22,7 @@
                     </mat-card>
                 </li>
             </ul>
+            <div *ngIf="!userBooks.length" style="width: 100%; display: flex; justify-content: center;">Sem anúncios</div>
         </mat-tab>
         <mat-tab label="Minhas Compras">
             <ul>
@@ -27,7 +31,10 @@
                         <mat-card-header class="card-header">
                             <mat-card-title class="card-title">{{purchedBook.title}}</mat-card-title>
                         </mat-card-header>
-                        <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+                        <div style="width: 100%; height: 320px; display: flex; justify-content: center; margin-top: 20px;">
+                            <img *ngIf="purchedBook.imageUrl" mat-card-image src="{{purchedBook.imageUrl}}" style="width: 100%; height: 100%;" alt="Foto do livro">
+                            <img *ngIf="!purchedBook.imageUrl" mat-card-image src="https://www.otis.edu/sites/default/files/books-readers-icon-small-16_0.png" style="width: 100%; height: 100%;" >
+                        </div>
                         <mat-card-content>
                             <div>Autor: {{purchedBook.author}}</div>
                             <div class="card-price">R$ {{purchedBook.price}},00</div>
@@ -36,6 +43,7 @@
                     </mat-card>
                 </li>
             </ul>
+            <div *ngIf="!purchedBooks.length" style="width: 100%; display: flex; justify-content: center;">Sem Compras</div>
         </mat-tab>
     </mat-tab-group>
 </div>
